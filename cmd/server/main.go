@@ -4,27 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"sync"
 	"time"
-)
-
-type Track struct {
-	ID           string `json:"id"`
-	TrackNumber  string `json:"track_number"`
-	Carrier      string `json:"carrier"`
-	Status       string `json:"status"`
-	LastUpdateAt string `json:"last_update_at"`
-	CreatedAt    string `json:"created_at"`
-}
-
-type CreateTrackRequest struct {
-	TrackNumber string `json:"track_number"`
-	Carrier     string `json:"carrier"`
-}
-
-var (
-	mu     sync.Mutex
-	tracks = make(map[string]Track)
 )
 
 func main() {
